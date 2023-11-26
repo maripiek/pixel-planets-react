@@ -1,15 +1,12 @@
 import { Canvas } from "@react-three/fiber";
+import Moon from "./Planets/Moon";
 
-function App() {
+export default function App() {
+
   return (
-    <Canvas>
-      <pointLight position={[10, 10, 10]} />
-      <mesh>
-        <sphereGeometry />
-        <meshStandardMaterial color="hotpink" />
-      </mesh>
+    <Canvas camera={{fov: 20}}>
+      <color attach="background" args={['#656874']} />
+      <Moon />
     </Canvas>
   );
 }
-
-export default App;

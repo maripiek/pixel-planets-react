@@ -1,8 +1,9 @@
 {
-  "name": "planets",
-  "version": "0.1.0",
+  "name": "pixel-planets-react",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -11,6 +12,7 @@
     "@types/node": "^16.18.65",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.17",
+    "leva": "^0.9.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",

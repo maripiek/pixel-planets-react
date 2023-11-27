@@ -133,7 +133,7 @@ export default function BasePlanet({
  return (
   <mesh>
     <planeGeometry args={[1,1]} />
-    <shaderMaterial 
+    <shaderMaterial
       uniforms={{
         pixels: {value: 150.0},
         color1: { value: colorPalette[0]},
@@ -144,7 +144,7 @@ export default function BasePlanet({
         time_speed: { value: rotationSpeed },
         rotation: { value: rotation },
         seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
-        time: { value: 0.0 }
+        time: { value: 0.0}
       }}
       vertexShader={vertexShader()}
       fragmentShader={fragmentShaderPlanet()}

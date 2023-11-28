@@ -117,18 +117,16 @@ const fragmentShaderPlanet = () => {
   `;
 }
 
-export default function BasePlanet({
+export default function BasePlanetLayer({
   lightPos = new Vector2(0.39, 0.7), 
   lightIntensity = 0.1, 
-  colors = null, 
-  rotationSpeed = 0.1,
-  rotation = 0.0}) {
-
-  const colorPalette = colors ? colors : [
+  colors = [
     new Vector4(155 / 255, 158 / 255, 184 / 255, 1),
     new Vector4(71 / 255, 97 / 255, 124 / 255, 1),
     new Vector4(53 / 255, 57 / 255, 85 / 255, 1)
-  ]
+  ], 
+  rotationSpeed = 0.1,
+  rotation = 0.0}) {
 
  return (
   <mesh>
@@ -136,9 +134,9 @@ export default function BasePlanet({
     <shaderMaterial
       uniforms={{
         pixels: {value: 150.0},
-        color1: { value: colorPalette[0]},
-        color2: { value: colorPalette[1]},
-        color3: { value: colorPalette[2]},
+        color1: { value: colors[0]},
+        color2: { value: colors[1]},
+        color3: { value: colors[2]},
         lightIntensity: { value: lightIntensity },
         light_origin: { value: lightPos },
         time_speed: { value: rotationSpeed },

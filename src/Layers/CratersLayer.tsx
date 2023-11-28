@@ -101,24 +101,23 @@ const fragmentShaderCrater = () => {
   `;
 }
 
-export default function CraterLayer({
+export default function CratersLayer({
   lightPos = new Vector2(0.5, 0.7), 
-  colors = null, 
+  colors = [
+    new Vector4(71 / 255, 97 / 255, 124 / 255, 1),
+    new Vector4(53 / 255, 57 / 255, 85 / 255, 1)
+  ], 
   rotationSpeed = 0.0,
   rotation = 0.0
 }) {
-  const colorPalette = colors ? colors : [
-    new Vector4(71 / 255, 97 / 255, 124 / 255, 1),
-    new Vector4(53 / 255, 57 / 255, 85 / 255, 1)
-  ]
 
   return (
     <mesh>
       <planeGeometry args={[1,1]} />
       <shaderMaterial
         uniforms={{
-          color1: { value: colorPalette[0] },
-          color2: { value: colorPalette[1] },
+          color1: { value: colors[0] },
+          color2: { value: colors[1] },
           light_origin: { value: lightPos },
           time_speed: { value: rotationSpeed },
           rotation: { value: rotation },

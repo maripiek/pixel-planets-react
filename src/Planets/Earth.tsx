@@ -1,11 +1,20 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
+import { Vector4 } from "three";
+import Atmosphere from "../Layers/AtmosphereLayer";
 import BasePlanet from "../Layers/BasePlanetLayer";
-import Craters from "../Layers/CratersLayer";
+import Clouds from "../Layers/CloudsLayer";
+import LandMassLayer from "../Layers/LandMassLayer";
 
-export default function Moon() {
+export default function Earth() {
 
   const myGroup = React.useRef<any>()
+
+  const colors = [
+    new Vector4(102 / 255, 176 / 255, 199 / 255, 1),
+    new Vector4(102 / 255, 176 / 255, 199 / 255, 1),
+    new Vector4(52 / 255, 65 / 255, 157 / 255, 1)
+]
   
   useFrame(({ clock }) => {
     myGroup.current.children.forEach((layer: { material: { uniforms: { [x: string]: { value: number; }; }; }; }) => {
@@ -17,8 +26,10 @@ export default function Moon() {
 
   return(
     <group ref={myGroup}>
-      <BasePlanet />
-      <Craters />
+      <BasePlanet colors={colors}/>
+      <LandMassLayer land={0.4}/>
+      <Clouds />
+      <Atmosphere />
     </group>
 
   );

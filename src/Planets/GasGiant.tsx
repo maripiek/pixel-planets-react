@@ -1,10 +1,10 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
-import BasePlanet from "../Layers/BasePlanetLayer";
-import Craters from "../Layers/CratersLayer";
+import BaseGasPlanetLayer from "../Layers/BaseGasPlanetLayer";
+import GasLayer from "../Layers/GasLayer";
 
-export default function Moon() {
 
+export default function GasGiant() {
   const myGroup = React.useRef<any>()
   
   useFrame(({ clock }) => {
@@ -17,9 +17,8 @@ export default function Moon() {
 
   return(
     <group ref={myGroup}>
-      <BasePlanet />
-      <Craters />
+      <BaseGasPlanetLayer />
+      <GasLayer />
     </group>
-
   );
 }

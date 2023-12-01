@@ -1,10 +1,10 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
-import BaseGasPlanetLayer from "../layers/BaseGasPlanetLayer";
-import GasLayer from "../layers/GasLayer";
+import DenseGasLayer from "../layers/DenseGasLayer";
+import RingLayer from "../layers/RingLayer";
 
 
-export default function GasGiant() {
+export default function GasGiantRing() {
   const myGroup = React.useRef<any>()
   
   useFrame(({ clock }) => {
@@ -17,8 +17,8 @@ export default function GasGiant() {
 
   return(
     <group ref={myGroup}>
-      <BaseGasPlanetLayer />
-      <GasLayer />
+      <RingLayer />
+      <DenseGasLayer />
     </group>
   );
 }

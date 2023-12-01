@@ -1,9 +1,9 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
 import { Vector4 } from "three";
-import BasePlanet from "../Layers/BasePlanetLayer";
-import CratersLayer from "../Layers/CratersLayer";
-import RiversLayer from "../Layers/RiversLayer";
+import BasePlanet from "../layers/BasePlanetLayer";
+import CratersLayer from "../layers/CratersLayer";
+import RiversLayer from "../layers/RiversLayer";
 
 export default function LavaPlanet() {
 

@@ -1,10 +1,10 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
 import { Vector4 } from "three";
-import Atmosphere from "../Layers/AtmosphereLayer";
-import BasePlanet from "../Layers/BasePlanetLayer";
-import Clouds from "../Layers/CloudsLayer";
-import LandMassLayer from "../Layers/LandMassLayer";
+import Atmosphere from "../layers/AtmosphereLayer";
+import BasePlanet from "../layers/BasePlanetLayer";
+import Clouds from "../layers/CloudsLayer";
+import LandMassLayer from "../layers/LandMassLayer";
 
 export default function Earth() {
 

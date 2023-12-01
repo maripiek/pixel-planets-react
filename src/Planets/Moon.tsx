@@ -1,7 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
-import BasePlanet from "../Layers/BasePlanetLayer";
-import Craters from "../Layers/CratersLayer";
+import BasePlanet from "../layers/BasePlanetLayer";
+import Craters from "../layers/CratersLayer";
 
 export default function Moon() {
 

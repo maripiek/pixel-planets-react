@@ -1,10 +1,9 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
-import BaseGasPlanetLayer from "../layers/BaseGasPlanetLayer";
-import GasLayer from "../layers/GasLayer";
+import StarBaseLayer from "../layers/StarBaseLayer";
+import StarFlareLayer from "../layers/StarFlareLayer";
 
-
-export default function GasGiant() {
+export default function Star() {
   const myGroup = React.useRef<any>()
   
   useFrame(({ clock }) => {
@@ -17,8 +16,9 @@ export default function GasGiant() {
 
   return(
     <group ref={myGroup}>
-      <BaseGasPlanetLayer />
-      <GasLayer />
+      <StarBaseLayer/>
+      <StarFlareLayer/>
+      {/* <StarBlobLayer/> */}
     </group>
   );
 }

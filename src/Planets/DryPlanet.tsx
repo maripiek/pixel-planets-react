@@ -1,19 +1,17 @@
 import { useFrame } from "@react-three/fiber";
 import React from "react";
 import { Vector4 } from "three";
-import BasePlanet from "../layers/BasePlanetLayer";
-import Clouds from "../layers/CloudsLayer";
-import LakeLayer from "../layers/LakeLayer";
+import DryPlanetLayer from "../layers/DryPlanetLayer";
 
-export default function IcePlanet() {
+export default function DryPlanet() {
 
   const myGroup = React.useRef<any>()
 
-  const baseColorPalette = [
-    new Vector4(250/255,255/255,255/255,1),
-    new Vector4(199/255,212/255,255/255,1),
-    new Vector4(146/255,143/255,184/255,1)
-  ]
+  const colors = [
+    new Vector4(102 / 255, 176 / 255, 199 / 255, 1),
+    new Vector4(102 / 255, 176 / 255, 199 / 255, 1),
+    new Vector4(52 / 255, 65 / 255, 157 / 255, 1)
+]
   
   useFrame(({ clock }) => {
     myGroup.current.children.forEach((layer: { material: { uniforms: { [x: string]: { value: number; }; }; }; }) => {
@@ -25,9 +23,7 @@ export default function IcePlanet() {
 
   return(
     <group ref={myGroup}>
-      <BasePlanet colors={baseColorPalette}/>
-      <LakeLayer />
-      <Clouds />
+      <DryPlanetLayer/>
     </group>
   );
 }

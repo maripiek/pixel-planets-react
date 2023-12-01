@@ -1,11 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { useControls } from 'leva';
 import { useState } from "react";
-import Earth from "./Planets/Earth";
-import GasGiant from "./Planets/GasGiant";
-import IcePlanet from "./Planets/IcePlanet";
-import LavaPlanet from "./Planets/LavaPlanet";
-import Moon from "./Planets/Moon";
+import DryPlanet from "./planets/DryPlanet";
+import Earth from "./planets/Earth";
+import GasGiant from "./planets/GasGiant";
+import GasGiantRing from "./planets/GasGiantRing";
+import IcePlanet from "./planets/IcePlanet";
+import LavaPlanet from "./planets/LavaPlanet";
+import Moon from "./planets/Moon";
+import Star from "./planets/Star";
 
 export default function App() {
   const [planet, setPlanet] = useState('sunset')
@@ -13,30 +16,39 @@ export default function App() {
   function renderPlanet(planetName: string){
     switch(planetName){
       case "Moon": {
-        return <Moon />;
+        return <Moon/>;
       }
       case "Earth": {
-        return <Earth />;
+        return <Earth/>;
       }
       case "Ice Planet": {
-        return <IcePlanet />;
+        return <IcePlanet/>;
       }
       case "Lava Planet": {
-        return <LavaPlanet />;
+        return <LavaPlanet/>;
       }
       case "Gas Giant": {
-        return <GasGiant />;
+        return <GasGiant/>;
+      }
+      case "Gas Giant Ring": {
+        return <GasGiantRing/>;
+      }
+      case "Star": {
+        return <Star/>;
+      }
+      case "Dry Planet": {
+        return <DryPlanet/>;
       }
       default: {
-        return <div />
+        return <div/>
       }
     }
   }
 
   useControls({
     Planet: {
-      value: "Moon",
-      options: ["Moon", "Earth", "Ice Planet", "Lava Planet", "Gas Giant"],
+      value: "Star",
+      options: ["Moon", "Earth", "Ice Planet", "Lava Planet", "Gas Giant", "Gas Giant Ring", "Star", "Dry Planet"],
       onChange: (value) => setPlanet(value)
     }
   })

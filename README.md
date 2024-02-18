@@ -1,6 +1,4 @@
 # PixelPlanets ported to React
-https://maripiek.github.io/pixel-planets-react/
-
 ![](https://github.com/maripiek/pixel-planets-react/blob/main/moon.gif)
 
 This project is a React version of PixedPlanets by Deep-Fold \

@@ -64,6 +64,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: node-app
+      - run: pwd
+      - run: ls -la
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

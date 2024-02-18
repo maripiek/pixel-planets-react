@@ -49,13 +49,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
-      # - name: Download artifact from build job
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: pixel-planets-build
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v4
+      # - name: Configure Pages
+      #   uses: actions/configure-pages@v4
         
       - name: Deploy to GitHub Pages
         id: deployment

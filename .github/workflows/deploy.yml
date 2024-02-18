@@ -60,12 +60,8 @@ jobs:
     needs: build
     
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
         with:
           name: node-app
       - name: Deploy to GitHub Pages

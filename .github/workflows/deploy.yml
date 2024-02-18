@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: node-app
-        path: .
+        path: ./build
 
   deploy:
     # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages

@@ -20,10 +20,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Enable Corepack + pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

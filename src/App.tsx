@@ -1,14 +1,15 @@
 import { Canvas } from "@react-three/fiber";
 import { useControls } from 'leva';
-import { useState } from "react";
-import DryPlanet from "./planets/DryPlanet";
-import Earth from "./planets/Earth";
-import GasGiant from "./planets/GasGiant";
-import GasGiantRing from "./planets/GasGiantRing";
-import IcePlanet from "./planets/IcePlanet";
-import LavaPlanet from "./planets/LavaPlanet";
-import Moon from "./planets/Moon";
-import Star from "./planets/Star";
+import { lazy, useState } from "react";
+
+const Star = lazy(() => import("./planets/Star"));
+const Moon = lazy(() => import("./planets/Moon"));
+const LavaPlanet = lazy(() => import("./planets/LavaPlanet"));
+const IcePlanet = lazy(() => import("./planets/IcePlanet"));
+const GasGiantRing = lazy(() => import("./planets/GasGiantRing"));
+const GasGiant = lazy(() => import("./planets/GasGiant"));
+const Earth = lazy(() => import("./planets/Earth"));
+const DryPlanet = lazy(() => import("./planets/DryPlanet"));
 
 export default function App() {
   const [planet, setPlanet] = useState('sunset')

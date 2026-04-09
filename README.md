@@ -6,6 +6,7 @@ https://github.com/Deep-Fold/PixelPlanets
 
 ## How to run:
 * Install Node.js
+* Install pnpm
 * Run `pnpm install` in the project directory
 * Run `pnpm dev`
 

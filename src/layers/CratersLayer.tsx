@@ -1,6 +1,5 @@
 import { Vector2, Vector4 } from "three";
-import { flip } from "../Utils";
-
+import { flip } from "../utils";
 
 const vertexShader = () => {
   return `
@@ -102,18 +101,18 @@ const fragmentShaderCrater = () => {
 }
 
 export default function CratersLayer({
-  lightPos = new Vector2(0.5, 0.7), 
+  lightPos = new Vector2(0.5, 0.7),
   colors = [
     new Vector4(71 / 255, 97 / 255, 124 / 255, 1),
     new Vector4(53 / 255, 57 / 255, 85 / 255, 1)
-  ], 
+  ],
   rotationSpeed = 0.0,
   rotation = 0.0
 }) {
 
   return (
     <mesh>
-      <planeGeometry args={[1,1]} />
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
         uniforms={{
           color1: { value: colors[0] },

@@ -1,9 +1,9 @@
 import { useLoader } from "@react-three/fiber";
 import { NearestFilter, TextureLoader } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
-  return `
+    return `
   varying vec3 vUv; 
 
   void main() {
@@ -16,7 +16,7 @@ const vertexShader = () => {
 }
 
 const fragmentShader = () => {
-  return `
+    return `
       varying vec3 vUv;
       uniform float pixels;
       uniform float time_speed;
@@ -154,37 +154,36 @@ const fragmentShader = () => {
 }
 
 export default function StarFlareLayer({
-  rotationSpeed = 0.05, 
-  stormWidth = 0.2, 
-  stormDitherWidth = 0.07, 
-  color = null,
- }) {
+    rotationSpeed = 0.05,
+    stormWidth = 0.2,
+    stormDitherWidth = 0.07,
+}) {
 
-  const colorSchemeTexture = useLoader(TextureLoader, "starPalette/orangePalette.png");
-  colorSchemeTexture.magFilter = NearestFilter;
-  colorSchemeTexture.minFilter = NearestFilter;
+    const colorSchemeTexture = useLoader(TextureLoader, "starPalette/orangePalette.png");
+    colorSchemeTexture.magFilter = NearestFilter;
+    colorSchemeTexture.minFilter = NearestFilter;
 
-  return (
-    <mesh>
-      <planeGeometry args={[1,1]} />
-      <shaderMaterial
-        uniforms={{
-          pixels: { value: 200.0 },
-          colorramp: { value: colorSchemeTexture },
-          time_speed: { value: rotationSpeed },
-          rotation: { value: Math.random() },
-          seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
-          time: { value: 0.0 },
-          storm_width: { value: stormWidth },
-          storm_dither_width: { value: stormDitherWidth },
-          circle_amount: { value: 2.0 },
-          circle_scale: { value: 1.0 },
-          scale: { value: 1.0 },
-        }}
-        vertexShader={vertexShader()}
-        fragmentShader={fragmentShader()}
-        transparent={true}
-      />
-    </mesh>
-  );
+    return (
+        <mesh>
+            <planeGeometry args={[1, 1]} />
+            <shaderMaterial
+                uniforms={{
+                    pixels: { value: 200.0 },
+                    colorramp: { value: colorSchemeTexture },
+                    time_speed: { value: rotationSpeed },
+                    rotation: { value: Math.random() },
+                    seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
+                    time: { value: 0.0 },
+                    storm_width: { value: stormWidth },
+                    storm_dither_width: { value: stormDitherWidth },
+                    circle_amount: { value: 2.0 },
+                    circle_scale: { value: 1.0 },
+                    scale: { value: 1.0 },
+                }}
+                vertexShader={vertexShader()}
+                fragmentShader={fragmentShader()}
+                transparent={true}
+            />
+        </mesh>
+    );
 }

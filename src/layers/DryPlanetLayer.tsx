@@ -1,6 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { NearestFilter, TextureLoader, Vector2 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
   return `
@@ -131,7 +131,7 @@ const fragmentShader = () => {
 
 export default function DryPlanetLayer({
   lightPos = new Vector2(0.39, 0.7),
-  rotationSpeed = 0.1, 
+  rotationSpeed = 0.1,
   rotation = 0.0
 }) {
 
@@ -141,11 +141,11 @@ export default function DryPlanetLayer({
 
   return (
     <mesh>
-      <planeGeometry args={[1,1]} />
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
         uniforms={{
-          pixels: {value: 150.0},
-          colors: {value: colorMap},
+          pixels: { value: 150.0 },
+          colors: { value: colorMap },
           light_origin: { value: lightPos },
           time_speed: { value: rotationSpeed },
           rotation: { value: rotation },

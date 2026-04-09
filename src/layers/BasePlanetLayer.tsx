@@ -1,9 +1,8 @@
 import { Vector2, Vector4 } from "three";
-import { flip } from "../Utils";
-
+import { flip } from "../utils";
 
 const vertexShader = () => {
-  return `
+    return `
   varying vec3 vUv; 
 
   void main() {
@@ -16,7 +15,7 @@ const vertexShader = () => {
 }
 
 const fragmentShaderPlanet = () => {
-  return `
+    return `
       varying vec3 vUv;
       uniform float lightIntensity;
       uniform float pixels;
@@ -118,36 +117,36 @@ const fragmentShaderPlanet = () => {
 }
 
 export default function BasePlanetLayer({
-  lightPos = new Vector2(0.39, 0.7), 
-  lightIntensity = 0.1, 
-  colors = [
-    new Vector4(155 / 255, 158 / 255, 184 / 255, 1),
-    new Vector4(71 / 255, 97 / 255, 124 / 255, 1),
-    new Vector4(53 / 255, 57 / 255, 85 / 255, 1)
-  ], 
-  rotationSpeed = 0.1,
-  rotation = 0.0}) {
+    lightPos = new Vector2(0.39, 0.7),
+    lightIntensity = 0.1,
+    colors = [
+        new Vector4(155 / 255, 158 / 255, 184 / 255, 1),
+        new Vector4(71 / 255, 97 / 255, 124 / 255, 1),
+        new Vector4(53 / 255, 57 / 255, 85 / 255, 1)
+    ],
+    rotationSpeed = 0.1,
+    rotation = 0.0 }) {
 
- return (
-  <mesh>
-    <planeGeometry args={[1,1]} />
-    <shaderMaterial
-      uniforms={{
-        pixels: {value: 150.0},
-        color1: { value: colors[0]},
-        color2: { value: colors[1]},
-        color3: { value: colors[2]},
-        lightIntensity: { value: lightIntensity },
-        light_origin: { value: lightPos },
-        time_speed: { value: rotationSpeed },
-        rotation: { value: rotation },
-        seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
-        time: { value: 0.0}
-      }}
-      vertexShader={vertexShader()}
-      fragmentShader={fragmentShaderPlanet()}
-      transparent={true}
-    />
-  </mesh>
- );
+    return (
+        <mesh>
+            <planeGeometry args={[1, 1]} />
+            <shaderMaterial
+                uniforms={{
+                    pixels: { value: 150.0 },
+                    color1: { value: colors[0] },
+                    color2: { value: colors[1] },
+                    color3: { value: colors[2] },
+                    lightIntensity: { value: lightIntensity },
+                    light_origin: { value: lightPos },
+                    time_speed: { value: rotationSpeed },
+                    rotation: { value: rotation },
+                    seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
+                    time: { value: 0.0 }
+                }}
+                vertexShader={vertexShader()}
+                fragmentShader={fragmentShaderPlanet()}
+                transparent={true}
+            />
+        </mesh>
+    );
 }

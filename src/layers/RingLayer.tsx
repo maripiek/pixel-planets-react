@@ -1,6 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { NearestFilter, TextureLoader, Vector2, Vector3 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
   return `
@@ -135,14 +135,14 @@ const fragmentShader = () => {
 }
 
 export default function RingLayer({
-  lightPos = new Vector2(0.39, 0.7), 
-  rotationSpeed = 0.1, 
-  ringWidth = 0.143, 
-  perspective = 6.0, 
+  lightPos = new Vector2(0.39, 0.7),
+  rotationSpeed = 0.1,
+  ringWidth = 0.143,
+  perspective = 6.0,
   scalePlanet = 4.0
- }) {
+}) {
 
-  
+
   const colorSchemeTexture1 = useLoader(TextureLoader, "colorScheme1.png");
   colorSchemeTexture1.magFilter = NearestFilter
   colorSchemeTexture1.minFilter = NearestFilter
@@ -158,7 +158,7 @@ export default function RingLayer({
       position={new Vector3(0, 0, 0.01)}
       scale={new Vector3(2.0, 2.0)}
     >
-      <planeGeometry args={[1,1]} />
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
         uniforms={{
           colorscheme: { value: colorSchemeTexture1 },

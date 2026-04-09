@@ -6,8 +6,8 @@ https://github.com/Deep-Fold/PixelPlanets
 
 ## How to run:
 * Install Node.js
-* Run `npm install` in the project directory
-* Run `npm start`
+* Run `pnpm install` in the project directory
+* Run `pnpm dev`
 
 ## Based on:
 * Original Godot version by Deep-Fold https://github.com/Deep-Fold/PixelPlanets

@@ -1,6 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { NearestFilter, TextureLoader, Vector2 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
   return `
@@ -127,10 +127,10 @@ const fragmentShaderPlanet = () => {
 }
 
 export default function StarBaseLayer({
-  lightPos = new Vector2(0.39, 0.7), 
-  lightIntensity = 0.1, 
+  lightPos = new Vector2(0.39, 0.7),
+  lightIntensity = 0.1,
   rotationSpeed = 0.01,
- }) {
+}) {
 
   const colorSchemeTexture = useLoader(TextureLoader, "starPalette/orangePalette.png");
   colorSchemeTexture.magFilter = NearestFilter
@@ -138,11 +138,11 @@ export default function StarBaseLayer({
 
   return (
     <mesh>
-      <planeGeometry args={[1,1]} />
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
         uniforms={{
-          pixels: {value: 150.0},
-          colorramp: {value: colorSchemeTexture},
+          pixels: { value: 150.0 },
+          colorramp: { value: colorSchemeTexture },
           lightIntensity: { value: lightIntensity },
           light_origin: { value: lightPos },
           time_speed: { value: rotationSpeed },

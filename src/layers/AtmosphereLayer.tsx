@@ -47,20 +47,20 @@ const fragmentShader = () => {
 }
 
 export default function AtmosphereLayer() {
-    return (
-      <mesh>
-        <planeGeometry args={[1.5, 1.5]} />
-        <shaderMaterial
-          uniforms={{
-            color: {value: new Vector4(173/255,216/255,230/255, 0.25)},
-            color2: {value: new Vector4(0/255,127/255,255/255,  0.35)},
-            color3: {value: new Vector4(0/255,0/255,128/255,    0.45)}
-          }}
-          vertexShader={vertexShader()}
-          fragmentShader={fragmentShader()}
-          transparent={true}
-        />
-      </mesh>
-    );
-  
-  }
+  return (
+    <mesh>
+      <planeGeometry args={[1.5, 1.5]} />
+      <shaderMaterial
+        uniforms={{
+          color: { value: new Vector4(173 / 255, 216 / 255, 230 / 255, 0.25) },
+          color2: { value: new Vector4(0 / 255, 127 / 255, 255 / 255, 0.35) },
+          color3: { value: new Vector4(0 / 255, 0 / 255, 128 / 255, 0.45) }
+        }}
+        vertexShader={vertexShader()}
+        fragmentShader={fragmentShader()}
+        transparent={true}
+      />
+    </mesh>
+  );
+
+}

@@ -1,9 +1,9 @@
 import { useLoader } from "@react-three/fiber";
 import { NearestFilter, TextureLoader, Vector2 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
-  return `
+    return `
   varying vec3 vUv; 
 
   void main() {
@@ -16,7 +16,7 @@ const vertexShader = () => {
 }
 
 const fragmentShader = () => {
-  return `
+    return `
       varying vec3 vUv;
       uniform float pixels;
       uniform float rotation;
@@ -163,36 +163,36 @@ const fragmentShader = () => {
 }
 
 export default function DenseGasLayer({
-  lightPos = new Vector2(0.39, 0.7), 
-  rotationSpeed = 0.1
- }) {
+    lightPos = new Vector2(0.39, 0.7),
+    rotationSpeed = 0.1
+}) {
 
-  const colorSchemeTexture1 = useLoader(TextureLoader, "colorScheme1.png");
-  colorSchemeTexture1.magFilter = NearestFilter
-  colorSchemeTexture1.minFilter = NearestFilter
+    const colorSchemeTexture1 = useLoader(TextureLoader, "colorScheme1.png");
+    colorSchemeTexture1.magFilter = NearestFilter
+    colorSchemeTexture1.minFilter = NearestFilter
 
-  const colorSchemeTexture2 = useLoader(TextureLoader, "colorScheme2.png");
-  colorSchemeTexture2.magFilter = NearestFilter
-  colorSchemeTexture2.minFilter = NearestFilter
+    const colorSchemeTexture2 = useLoader(TextureLoader, "colorScheme2.png");
+    colorSchemeTexture2.magFilter = NearestFilter
+    colorSchemeTexture2.minFilter = NearestFilter
 
-  return (
-    <mesh>
-      <planeGeometry args={[1,1]} />
-      <shaderMaterial
-        uniforms={{
-          colorscheme: { value: colorSchemeTexture1 },
-          dark_colorscheme: { value: colorSchemeTexture2 },
-          pixels: { value: 150.0 },
-          light_origin: { value: lightPos },
-          time_speed: { value: rotationSpeed },
-          rotation: { value: Math.random() },
-          seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
-          time: { value: 0.0 }
-        }}
-        vertexShader={vertexShader()}
-        fragmentShader={fragmentShader()}
-        transparent={true}
-      />
-    </mesh>
-  );
+    return (
+        <mesh>
+            <planeGeometry args={[1, 1]} />
+            <shaderMaterial
+                uniforms={{
+                    colorscheme: { value: colorSchemeTexture1 },
+                    dark_colorscheme: { value: colorSchemeTexture2 },
+                    pixels: { value: 150.0 },
+                    light_origin: { value: lightPos },
+                    time_speed: { value: rotationSpeed },
+                    rotation: { value: Math.random() },
+                    seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
+                    time: { value: 0.0 }
+                }}
+                vertexShader={vertexShader()}
+                fragmentShader={fragmentShader()}
+                transparent={true}
+            />
+        </mesh>
+    );
 }

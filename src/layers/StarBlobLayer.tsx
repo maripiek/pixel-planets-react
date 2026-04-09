@@ -1,5 +1,5 @@
 import { Vector4 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
   return `
@@ -123,25 +123,25 @@ const fragmentShader = () => {
 }
 
 export default function StarBlobLayer({
-  rotationSpeed = 0.1, 
- }) {
+  rotationSpeed = 0.1,
+}) {
 
-  const color = new Vector4(255/255, 165/255, 0/255, 1);
+  const color = new Vector4(255 / 255, 165 / 255, 0 / 255, 1);
 
   return (
     <mesh>
-      <planeGeometry args={[1.3,1.3]} />
+      <planeGeometry args={[1.3, 1.3]} />
       <shaderMaterial
         uniforms={{
-          pixels: {value: 200.0},
-          color: {value: color},
+          pixels: { value: 200.0 },
+          color: { value: color },
           time_speed: { value: rotationSpeed },
           rotation: { value: Math.random() },
           seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
           time: { value: 0.0 },
-          circle_amount: {value: 3.0},
-          circle_size: {value: 1.5},
-          scale: {value: 1.9},
+          circle_amount: { value: 3.0 },
+          circle_size: { value: 1.5 },
+          scale: { value: 1.9 },
         }}
         vertexShader={vertexShader()}
         fragmentShader={fragmentShader()}

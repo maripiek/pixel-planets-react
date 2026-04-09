@@ -1,5 +1,5 @@
 import { Vector2, Vector4 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
   return `
@@ -116,22 +116,22 @@ const fragmentShaderLakes = () => {
 
 
 export default function LakeLayer({
-  lightPos = new Vector2(0.39, 0.7), 
-  rotationSpeed = 0.1, 
-  lakes = 0.6, 
+  lightPos = new Vector2(0.39, 0.7),
+  rotationSpeed = 0.1,
+  lakes = 0.6,
   colors = [
     new Vector4(79 / 255, 164 / 255, 184 / 255, 1),
     new Vector4(76 / 255, 104 / 255, 133 / 255, 1),
     new Vector4(58 / 255, 63 / 255, 94 / 255, 1)
-  ], 
+  ],
   rotation = 0.0
 }) {
   return (
     <mesh>
-      <planeGeometry args={[1,1]} />
+      <planeGeometry args={[1, 1]} />
       <shaderMaterial
         uniforms={{
-          pixels: {value: 150.0},
+          pixels: { value: 150.0 },
           light_origin: { value: lightPos },
           seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
           time_speed: { value: rotationSpeed },
@@ -147,5 +147,5 @@ export default function LakeLayer({
         transparent={true}
       />
     </mesh>
-  ); 
+  );
 }

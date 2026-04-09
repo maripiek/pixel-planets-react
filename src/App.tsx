@@ -13,34 +13,34 @@ import Star from "./planets/Star";
 export default function App() {
   const [planet, setPlanet] = useState('sunset')
 
-  function renderPlanet(planetName: string){
-    switch(planetName){
+  function renderPlanet(planetName: string) {
+    switch (planetName) {
       case "Moon": {
-        return <Moon/>;
+        return <Moon />;
       }
       case "Earth": {
-        return <Earth/>;
+        return <Earth />;
       }
       case "Ice Planet": {
-        return <IcePlanet/>;
+        return <IcePlanet />;
       }
       case "Lava Planet": {
-        return <LavaPlanet/>;
+        return <LavaPlanet />;
       }
       case "Gas Giant": {
-        return <GasGiant/>;
+        return <GasGiant />;
       }
       case "Gas Giant Ring": {
-        return <GasGiantRing/>;
+        return <GasGiantRing />;
       }
       case "Star": {
-        return <Star/>;
+        return <Star />;
       }
       case "Dry Planet": {
-        return <DryPlanet/>;
+        return <DryPlanet />;
       }
       default: {
-        return <div/>
+        return <div />
       }
     }
   }
@@ -54,7 +54,7 @@ export default function App() {
   })
 
   return (
-    <Canvas camera={{fov: 30}}>
+    <Canvas camera={{ fov: 30 }}>
       <color attach="background" args={['#656874']} />
       {renderPlanet(planet)}
     </Canvas>

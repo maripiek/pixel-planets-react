@@ -1,5 +1,5 @@
 import { Vector2, Vector4 } from "three";
-import { flip } from "../Utils";
+import { flip } from "../utils";
 
 const vertexShader = () => {
     return `
@@ -151,41 +151,41 @@ const fragmentShaderClouds = () => {
 }
 
 export default function CloudsLayer({
-    lightPos = new Vector2(0.39, 0.7), 
+    lightPos = new Vector2(0.39, 0.7),
     colors = [
-      new Vector4(0.882353, 0.94902, 1, 1),
-      new Vector4(0.752941, 0.890196, 1, 1),
-      new Vector4(0.368627, 0.439216, 0.647059, 1),
-      new Vector4(0.25098, 0.286275, 0.45098, 1)
+        new Vector4(0.882353, 0.94902, 1, 1),
+        new Vector4(0.752941, 0.890196, 1, 1),
+        new Vector4(0.368627, 0.439216, 0.647059, 1),
+        new Vector4(0.25098, 0.286275, 0.45098, 1)
     ],
-    rotationSpeed = 0.03, 
-    rotation = 0.0, 
-    cloudCover = 0.546, 
+    rotationSpeed = 0.03,
+    rotation = 0.0,
+    cloudCover = 0.546,
     stretch = 2.5
-  }) {
+}) {
     return (
-      <mesh>
-        <planeGeometry args={[1,1]} />
-        <shaderMaterial
-          uniforms={{
-            light_origin: { value: lightPos },
-            pixels: { value: 150.0 },
-            seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
-            time_speed: { value: rotationSpeed },
-            base_color: { value: colors[0] },
-            outline_color: { value: colors[1] },
-            shadow_base_color: { value: colors[2] },
-            shadow_outline_color: { value: colors[3] },
-            cloud_cover: { value: cloudCover },
-            rotation: { value: rotation },
-            stretch: { value: stretch },
-            time: { value: 0.0 }
-          }}
-          vertexShader={vertexShader()}
-          fragmentShader={fragmentShaderClouds()}
-          transparent={true}
-        />
-      </mesh>
+        <mesh>
+            <planeGeometry args={[1, 1]} />
+            <shaderMaterial
+                uniforms={{
+                    light_origin: { value: lightPos },
+                    pixels: { value: 150.0 },
+                    seed: { value: flip() ? Math.random() * 10 : Math.random() * 100 },
+                    time_speed: { value: rotationSpeed },
+                    base_color: { value: colors[0] },
+                    outline_color: { value: colors[1] },
+                    shadow_base_color: { value: colors[2] },
+                    shadow_outline_color: { value: colors[3] },
+                    cloud_cover: { value: cloudCover },
+                    rotation: { value: rotation },
+                    stretch: { value: stretch },
+                    time: { value: 0.0 }
+                }}
+                vertexShader={vertexShader()}
+                fragmentShader={fragmentShaderClouds()}
+                transparent={true}
+            />
+        </mesh>
     );
-  
-  }
+
+}
